@@ -36,7 +36,7 @@ export const Route = createFileRoute("/products/$slug")({
 });
 
 function ProductPage() {
-  const p = Route.useLoaderData();
+  const p = Route.useLoaderData() as (typeof PRODUCTS)[number];
   const [qty, setQty] = useState(1);
   const related = PRODUCTS.filter((x) => x.slug !== p.slug).slice(0, 4);
 
